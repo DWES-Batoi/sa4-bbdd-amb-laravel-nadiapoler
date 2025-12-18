@@ -9,6 +9,7 @@
 <body class="font-sans bg-gray-100 text-gray-900">
   <header class="bg-blue-800 text-white p-4">
     @include('partials.menu')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
   </header>
   <main class="container mx-auto p-6">
     @yield('content')
