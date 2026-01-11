@@ -26,24 +26,34 @@
   <tbody>
     @foreach($jugadores as $jugadora)
     <tr class="hover:bg-gray-100">
-      <td class="border border-gray-300 p-2">
-        <a href="{{ $jugadora->equip ? route('jugadores.show', $jugadora->id) : '#' }}" class="text-blue-700 hover:underline">
+      <td class="border border-gray-300 px-2 py-1">
+        <a href="{{ $jugadora->equip ? route('jugadores.show', $jugadora->id) : '#' }}"
+          class="text-blue-700 hover:underline">
           {{ $jugadora->equip ? $jugadora->equip->nom : 'Sense equip' }}
         </a>
       </td>
 
-      <td class="border border-gray-300 p-2">
-        {{ $jugadora->data_naixement ? $jugadora->data_naixement->format('d/m/Y') : 'No disponible' }}
+      <td class="border border-gray-300 px-2 py-1">
+        {{ $jugadora->data_naixement
+        ? \Carbon\Carbon::parse($jugadora->data_naixement)->format('d/m/Y')
+        : 'No disponible' }}
       </td>
-      <td class="border border-gray-300 p-2">{{ $jugadora->dorsal }}</td>
-      <td class="border border-gray-300 p-2">
+
+      <td class="border border-gray-300 px-2 py-1 text-center">
+        {{ $jugadora->dorsal }}
+      </td>
+
+      <td class="border border-gray-300 px-2 py-1">
         @if($jugadora->foto)
-        <img src="{{ asset('storage/' . $jugadora->foto) }}" alt="Foto" class="w-16 h-16 object-cover rounded">
+        <img src="{{ asset('storage/' . $jugadora->foto) }}"
+          class="w-10 h-10 object-cover rounded">
         @else
         No disponible
         @endif
       </td>
     </tr>
+
+
     @endforeach
   </tbody>
 </table>

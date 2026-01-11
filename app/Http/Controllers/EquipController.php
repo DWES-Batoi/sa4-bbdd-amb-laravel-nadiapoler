@@ -13,13 +13,15 @@ class EquipController extends Controller
     public function __construct(private EquipService $servei) {}
 
     // GET /equips
-    public function index() {
+    public function index()
+    {
         $equips = $this->servei->llistar();
         return view('equips.index', compact('equips'));
     }
 
     // GET /equips/create
-    public function create() {
+    public function create()
+    {
         $estadis = Estadi::all();
         return view('equips.create', compact('estadis'));
     }
@@ -35,12 +37,18 @@ class EquipController extends Controller
     }
 
     // GET /equips/{equip}
-    public function show(Equip $equip) {
-        return view('equips.show', compact('equip'));
+    public function show(Equip $equip)
+    {
+        $edatMitjana   = $this->servei->edatMitjana($equip->id);
+        $ultimsPartits = $this->servei->ultimsPartits($equip->id);
+
+        return view('equips.show', compact('equip', 'edatMitjana', 'ultimsPartits'));
     }
 
+
     // GET /equips/{equip}/edit
-    public function edit(Equip $equip) {
+    public function edit(Equip $equip)
+    {
         return view('equips.edit', compact('equip'));
     }
 
@@ -54,7 +62,8 @@ class EquipController extends Controller
     }
 
     // DELETE /equips/{equip}
-    public function destroy(Equip $equip) {
+    public function destroy(Equip $equip)
+    {
         $this->servei->eliminar($equip->id);
         return redirect()->route('equips.index');
     }
