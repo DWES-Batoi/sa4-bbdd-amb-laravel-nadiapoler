@@ -15,7 +15,13 @@ class Partit extends Model
         'estadi_id',
         'data',
         'jornada',
-        'gols',
+        'gols_local',
+        'gols_visitant',
+    ];
+
+    // <<< Esto convierte 'data' automáticamente a Carbon
+    protected $casts = [
+        'data' => 'date',
     ];
 
     public function local()

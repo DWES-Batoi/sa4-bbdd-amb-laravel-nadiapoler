@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Repositories\BaseRepository;
 use App\Repositories\EquipRepository;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\JugadoraRepository;
+use App\Repositories\PartitRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,6 +16,9 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(BaseRepository::class, EquipRepository::class);
+        // Para que se inyecte correctamente en los servicios
+        $this->app->bind('JugadoraRepo', JugadoraRepository::class);
+        $this->app->bind('PartitRepo', PartitRepository::class);
     }
 
     /**

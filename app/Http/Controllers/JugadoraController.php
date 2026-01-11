@@ -2,99 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jugadora;
 use App\Models\Equip;
-use Illuminate\Http\Request;
+use App\Models\Jugadora;
+use App\Http\Requests\StoreJugadoraRequest;
+use App\Http\Requests\UpdateJugadoraRequest;
+use App\Services\JugadoraService;
 
 class JugadoraController extends Controller
 {
-    /**
-     * GET /jugadores
-     * Llistat de jugadores
-     */
-    public function index()
-    {
-        $jugadores = Jugadora::with('equip')->get();
+    public function __construct(private JugadoraService $servei) {}
+
+    public function index() {
+        $jugadores = $this->servei->llistar();
         return view('jugadores.index', compact('jugadores'));
     }
 
-    /**
-     * GET /jugadores/create
-     * Formulari de creació
-     */
-    public function create()
-    {
+    public function create() {
         $equips = Equip::all();
         return view('jugadores.create', compact('equips'));
     }
 
-    /**
-     * POST /jugadores
-     * Guardar nova jugadora
-     */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'equip_id' => 'required|exists:equips,id',
-            'data_naixement' => 'required|date',
-            'dorsal' => 'required|integer|min:1',
-            'foto' => 'nullable|string',
-        ]);
-
-        Jugadora::create($request->all());
-
-        return redirect()
-            ->route('jugadores.index')
-            ->with('success', 'Jugadora creada correctament');
+    public function store(StoreJugadoraRequest $request) {
+        $this->servei->guardar($request->validated());
+        return redirect()->route('jugadores.index');
     }
 
-    /**
-     * GET /jugadores/{jugadora}
-     * Detall d’una jugadora
-     */
-    public function show(Jugadora $jugadora)
-    {
-        $jugadora->load('equip');
+    public function show(Jugadora $jugadora) {
         return view('jugadores.show', compact('jugadora'));
     }
 
-    /**
-     * GET /jugadores/{jugadora}/edit
-     */
-    public function edit(Jugadora $jugadora)
-    {
+    public function edit(Jugadora $jugadora) {
         $equips = Equip::all();
         return view('jugadores.edit', compact('jugadora', 'equips'));
     }
 
-    /**
-     * PUT /jugadores/{jugadora}
-     */
-    public function update(Request $request, Jugadora $jugadora)
-    {
-        $request->validate([
-            'equip_id' => 'required|exists:equips,id',
-            'data_naixement' => 'required|date',
-            'dorsal' => 'required|integer|min:1',
-            'foto' => 'nullable|string',
-        ]);
-
-        $jugadora->update($request->all());
-
-        return redirect()
-            ->route('jugadores.index')
-            ->with('success', 'Jugadora actualitzada correctament');
+    public function update(UpdateJugadoraRequest $request, Jugadora $jugadora) {
+        $this->servei->actualitzar($jugadora->id, $request->validated());
+        return redirect()->route('jugadores.index');
     }
 
-    /**
-     * DELETE /jugadores/{jugadora}
-     */
-    public function destroy(Jugadora $jugadora)
-    {
-        $jugadora->delete();
-
-        return redirect()
-            ->route('jugadores.index')
-            ->with('success', 'Jugadora eliminada correctament');
+    public function destroy(Jugadora $jugadora) {
+        $this->servei->eliminar($jugadora->id);
+        return redirect()->route('jugadores.index');
     }
 }
