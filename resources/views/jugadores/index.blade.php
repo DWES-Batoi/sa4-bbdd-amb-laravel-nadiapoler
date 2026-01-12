@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@extends('layouts.equip')
 @section('title', "Guia de Jugadores")
 
 @section('content')

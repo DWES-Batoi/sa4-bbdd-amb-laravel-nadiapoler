@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@extends('layouts.equip')
 @section('title', 'Afegir nou partit')
 
 @section('content')

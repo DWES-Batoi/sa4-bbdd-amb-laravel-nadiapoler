@@ -1,7 +1,12 @@
 @extends('layouts.app')
+@extends('layouts.equip')
+
 @section('title', "Detall d'Equip")
 
 @section('content')
+    <x-equip :equip="$equip" />
+@endsection
+
   <x-equip
     :nom="$equip->nom"
     :estadi="$equip->estadi->nom"
@@ -32,4 +37,4 @@
       <p>No hi ha partits registrats.</p>
     @endif
   </div>
-@endsection
+

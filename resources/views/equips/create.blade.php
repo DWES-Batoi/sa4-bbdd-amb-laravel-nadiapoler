@@ -1,20 +1,22 @@
 @extends('layouts.app')
+@extends('layouts.equip')
+
 @section('title', 'Afegir nou equip')
 
 @section('content')
 <h1 class="text-2xl font-bold mb-4">Afegir nou equip</h1>
 
 @if ($errors->any())
-  <div class="bg-red-100 text-red-700 p-2 mb-4">
-    <ul>
-      @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-      @endforeach
-    </ul>
-  </div>
+<div class="bg-red-100 text-red-700 p-2 mb-4">
+  <ul>
+    @foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+  </ul>
+</div>
 @endif
 
-<form action="{{ route('equips.store') }}" method="POST" class="space-y-4">
+<form action="{{ route('equips.store') }}" method="POST" class="space-y-4" enctype="multipart/form-data">
   @csrf
   <div>
     <label for="nom" class="block font-bold">Nom:</label>
@@ -23,18 +25,17 @@
       name="nom"
       id="nom"
       value="{{ old('nom') }}"
-      class="border p-2 w-full"
-    >
+      class="border p-2 w-full">
   </div>
 
   <div>
     <label for="estadi_id" class="block font-bold">Estadi:</label>
     <select name="estadi_id" id="estadi_id" class="border p-2 w-full">
       @foreach ($estadis as $estadi)
-        <option value="{{ $estadi->id }}"
-          {{ old('estadi_id') == $estadi->id ? 'selected' : '' }}>
-          {{ $estadi->nom }}
-        </option>
+      <option value="{{ $estadi->id }}"
+        {{ old('estadi_id') == $estadi->id ? 'selected' : '' }}>
+        {{ $estadi->nom }}
+      </option>
       @endforeach
     </select>
   </div>
@@ -46,8 +47,16 @@
       name="titols"
       id="titols"
       value="{{ old('titols') }}"
-      class="border p-2 w-full"
-    >
+      class="border p-2 w-full">
+  </div>
+
+  <div class="mb-4">
+    <label for="escut" class="block text-sm font-medium text-gray-700 mb-1">Escut:</label>
+    <input type="file" name="escut" id="escut"
+      class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+    @error('escut')
+    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+    @enderror
   </div>
 
   <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">
