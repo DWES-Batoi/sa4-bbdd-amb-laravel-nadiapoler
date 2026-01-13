@@ -5,6 +5,9 @@
 .title {
   margin-bottom: 16px;
 }
+th {
+  color: black !important;
+}
 
 .grid-cards {
   display: grid;
@@ -20,6 +23,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  color: black;
 }
 
 .card__header {

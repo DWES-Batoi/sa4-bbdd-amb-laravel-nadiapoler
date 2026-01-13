@@ -5,7 +5,7 @@
 
 @section('content')
     <x-equip :equip="$equip" />
-@endsection
+
 
   <x-equip
     :nom="$equip->nom"
@@ -38,3 +38,4 @@
     @endif
   </div>
 
+@endsection

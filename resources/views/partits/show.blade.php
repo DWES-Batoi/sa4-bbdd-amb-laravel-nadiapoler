@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<!--@extends('layouts.app')-->
 @extends('layouts.equip')
 @section('title', "Detall del Partit")
 
@@ -11,3 +11,5 @@
     :gols_visitant="$partit->gols_visitant"
   />
 @endsection
+
+
