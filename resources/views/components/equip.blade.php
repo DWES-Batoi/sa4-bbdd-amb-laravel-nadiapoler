@@ -1,4 +1,5 @@
-<div class="equip border rounded-lg shadow-md p-4 bg-white">
+@props(['equip'])
+<div class="equip border rounded-lg shadow-md p-4 bg-white equipo-estilos">
     @if ($equip->escut)
         <img src="{{ asset('storage/' . $equip->escut) }}"
              alt="Escut de {{ $equip->nom }}"

@@ -1,6 +1,6 @@
 @props(['nom', 'equip', 'data_naixement', 'dorsal', 'foto'])
 
-<div class="jugadora border rounded-lg shadow-md p-4 bg-white">
+<div class="jugadora border rounded-lg shadow-md p-4 bg-white jugadoras-estilos">
     <h2 class="text-xl font-bold text-blue-800">{{ $nom }}</h2>
     <p><strong>Equip:</strong> {{ $equip ?? 'Sense equip' }}</p>
     <p><strong>Data Naixement:</strong> {{ $data_naixement ?? 'No disponible' }}</p>

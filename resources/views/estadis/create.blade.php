@@ -1,9 +1,9 @@
-<!--@extends('layouts.app')-->
+@extends('layouts.app')
 @extends('layouts.equip')
-@section('title', 'Afegir nou estadi')
+@section('title', __('Afegir nou estadi'))
 
 @section('content')
-<h1 class="text-2xl font-bold mb-4">Afegir nou estadi</h1>
+<h1 class="text-2xl font-bold mb-4">{{ __('Afegir nou estadi') }}</h1>
 
 @if ($errors->any())
   <div class="bg-red-100 text-red-700 p-2 mb-4">
@@ -19,7 +19,7 @@
   @csrf
 
   <div>
-    <label for="nom" class="block font-bold">Nom:</label>
+    <label for="nom" class="block font-bold">{{ __('Nom') }}:</label>
     <input
       type="text"
       name="nom"
@@ -30,7 +30,7 @@
   </div>
 
   <div>
-    <label for="capacitat" class="block font-bold">Capacitat:</label>
+    <label for="capacitat" class="block font-bold">{{ __('Capacitat') }}:</label>
     <input
       type="text"
       name="capacitat"
@@ -41,7 +41,7 @@
   </div>
 
   <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">
-    Afegir
+    {{ __('Afegir') }}
   </button>
 </form>
 @endsection

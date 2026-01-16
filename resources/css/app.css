@@ -2,11 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+.equipo-estilos p{
+  color: #111828;
+}
+
+.estadios-estilos p{
+  color: #111828;
+}
+
+.jugadoras-estilos {
+  color: #111827;
+}
+
+.partido-estilos {
+  color: #111827;
+}
+
 .title {
   margin-bottom: 16px;
 }
 th {
   color: black !important;
+}
+
+.show {
+  color: black;
 }
 
 .grid-cards {

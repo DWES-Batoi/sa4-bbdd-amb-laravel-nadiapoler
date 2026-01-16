@@ -28,7 +28,8 @@ class Equip extends Model
      */
     public function manager()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class, 'equip_id')
+            ->where('role', 'manager');
     }
 
     /**

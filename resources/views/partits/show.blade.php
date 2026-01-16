@@ -1,6 +1,6 @@
 <!--@extends('layouts.app')-->
 @extends('layouts.equip')
-@section('title', "Detall del Partit")
+@section('title', __("Detall del Partit"))
 
 @section('content')
   <x-partit
