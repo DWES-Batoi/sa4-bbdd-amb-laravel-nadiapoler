@@ -1,5 +1,5 @@
-<!--@extends('layouts.app')-->
 @extends('layouts.equip')
+
 @section('title', __("Guia d'Estadis"))
 
 @section('content')

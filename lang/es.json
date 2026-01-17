@@ -19,9 +19,10 @@
     "Data": "Fecha",
     "Resultat": "Resultado",
     "Ciutat": "Ciudad",
-    "Barça Femení": "Barça Femenino",
-    "Atlètic de Madrid": "Atlético de Madrid",
-    "Real Madrid Femení": "Real Madrid Femenino",
+    "Estadis": "Estadios",
+    "Jugadores": "Jugadoras",
+    "Partits": "Partidos",
+    "La meua aplicació Laravel": "Mi aplicación Laravel",
 
     "(and :count more error)": "(y :count error más)",
     "(and :count more errors)": "(y :count error más)|(y :count errores más)|(y :count errores más)",

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.equipos-show{
+  color: #111827;
+}
+
 .equipo-estilos p{
   color: #111828;
 }

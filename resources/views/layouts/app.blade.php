@@ -33,6 +33,10 @@
         <main>
             {{ $slot ?? '' }}
         </main>
+
+        <footer>
+            @include('layouts.footer')
+        </footer>
     </div>
 
 

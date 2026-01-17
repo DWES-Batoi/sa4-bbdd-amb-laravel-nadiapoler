@@ -1,4 +1,3 @@
-<!--@extends('layouts.app')-->
 @extends('layouts.equip')
 
 @section('content')
@@ -17,8 +16,8 @@
         <span class="card__badge">ID: {{ $partit->id }}</span>
       </header>
       <div class="card__body">
-        <p><strong>Data:</strong> {{ $partit->data?->format('d/m/Y') ?? __('Sense data') }}</p>
-        <p><strong>Resultat:</strong> {{ $partit->gols_local }} - {{ $partit->gols_visitant }}</p>
+        <p><strong>{{ __('Data') }}:</strong> {{ $partit->data?->format('d/m/Y') ?? __('Sense data') }}</p>
+        <p><strong>{{ __('Resultat') }}:</strong> {{ $partit->gols_local }} - {{ $partit->gols_visitant }}</p>
       </div>
 
       <footer class="card__footer">
