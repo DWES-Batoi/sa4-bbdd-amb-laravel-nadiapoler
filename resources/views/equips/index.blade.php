@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-  <h1 class="title">{{ __('Llistat d\'equips') }}</h1>
+  <h1 class="title equips-index">{{ __('Llistat d\'equips') }}</h1>
 
   <div class="grid-cards">
     @foreach ($equips as $equip)

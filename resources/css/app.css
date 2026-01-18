@@ -3,8 +3,18 @@
 @tailwind utilities;
 
 .footer {
-  background-color: #202938;
-  color: white;
+    background-color: #202938;
+    color: white;
+}
+
+.partits-index,
+.equips-index,
+.estadis-index,
+.jugadores-index
+{
+    font-size: 1.7rem; 
+    font-weight: bold;
+    color: #ffffff;
 }
 
 .equipos-edit input,
@@ -14,93 +24,94 @@
 .jugadoras-estilos,
 .partido-estilos,
 .equipo-estilos p,
-.estadios-estilos p
-{
-  color: #111827;
+.estadios-estilos p {
+    color: #111827;
 }
 
 .title {
-  margin-bottom: 16px;
+    margin-bottom: 16px;
 }
 th {
-  color: black !important;
+    color: black !important;
 }
 
 .show {
-  color: black;
+    color: black;
 }
 
 .grid-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
 }
 
 .card {
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 14px;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  color: black;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 14px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: black;
 }
 
 .card__header {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  gap: 12px;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 12px;
 }
 
 .card__title {
-  margin: 0;
-  font-size: 18px;
+    margin: 0;
+    font-size: 18px;
 }
 
 .card__badge {
-  font-size: 12px;
-  padding: 4px 8px;
-  border: 1px solid #e5e7eb;
-  border-radius: 999px;
+    font-size: 12px;
+    padding: 4px 8px;
+    border: 1px solid #e5e7eb;
+    border-radius: 999px;
 }
 
 .card__body p {
-  margin: 6px 0;
+    margin: 6px 0;
 }
 
 .card__footer {
-  display: flex;
-  gap: 8px;
-  margin-top: 6px;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+    flex-wrap: wrap;
 }
 
 .btn {
-  border: 1px solid #e5e7eb;
-  padding: 8px 10px;
-  border-radius: 10px;
-  background: #fff;
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  font-size: 14px;
+    border: 1px solid #e5e7eb;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    font-size: 14px;
 }
 
 .btn--primary {
-  background: #111827;
-  color: white;
-  border-color: #111827;
+    background: #111827;
+    color: white;
+    border-color: #111827;
 }
 
 .btn--ghost {
-  background: #f9fafb;
+    background: #f9fafb;
 }
 
 .btn--danger {
-  background: #fee2e2;
-  border-color: #fecaca;
+    background: #fee2e2;
+    border-color: #fecaca;
 }
 
-.inline { display: inline; }
+.inline {
+    display: inline;
+}

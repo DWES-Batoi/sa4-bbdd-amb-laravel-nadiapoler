@@ -3,7 +3,7 @@
 @section('title', __("Guia de Jugadores"))
 
 @section('content')
-<h1 class="text-3xl font-bold text-blue-800 mb-6">{{ __('Guia de Jugadores') }}</h1>
+<h1 class="text-3xl font-bold text-blue-800 mb-6 jugadores-index">{{ __('Guia de Jugadores') }}</h1>
 
 @if (session('success'))
 <div class="bg-green-100 text-green-700 p-2 mb-4">{{ session('success') }}</div>

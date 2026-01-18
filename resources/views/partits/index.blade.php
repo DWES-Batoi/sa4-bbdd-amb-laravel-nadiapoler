@@ -1,8 +1,10 @@
 @extends('layouts.equip')
 
+@section('title', __('Partits'))
+
 @section('content')
 <div class="container">
-  <h1 class="title">{{ __('Llistat de partits') }}</h1>
+  <h1 class="title partits-index">{{ __('Llistat de partits') }}</h1>
 
   <div class="grid-cards">
     @foreach ($partits as $partit)
