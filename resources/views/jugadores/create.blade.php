@@ -16,7 +16,7 @@
 </div>
 @endif
 
-<form action="{{ route('jugadores.store') }}" method="POST" class="space-y-4">
+<form action="{{ route('jugadores.store') }}" method="POST" class="space-y-4 jugadora-create">
     @csrf
 
     <div>
@@ -31,7 +31,7 @@
     </div>
 
     <div>
-        <label for="data_naixement" class="block font-bold">{{ __('Data de naixement:') }}</label>
+        <label for="data_naixement" class="block font-bold">{{ __('Data de naixement') }}:</label>
         <input type="date" name="data_naixement" id="data_naixement" value="{{ old('data_naixement') }}" class="border p-2 w-full">
     </div>
 

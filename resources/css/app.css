@@ -2,23 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-.equipos-show{
-  color: #111827;
+.footer {
+  background-color: #202938;
+  color: white;
 }
 
-.equipo-estilos p{
-  color: #111828;
-}
-
-.estadios-estilos p{
-  color: #111828;
-}
-
-.jugadoras-estilos {
-  color: #111827;
-}
-
-.partido-estilos {
+.equipos-edit input,
+.equipos-edit select,
+.jugadora-create,
+.equipos-show,
+.jugadoras-estilos,
+.partido-estilos,
+.equipo-estilos p,
+.estadios-estilos p
+{
   color: #111827;
 }
 
