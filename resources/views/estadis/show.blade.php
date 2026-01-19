@@ -1,4 +1,3 @@
-@extends('layouts.app')
 @extends('layouts.equip')
 
 @section('title', __("Detall d'Estadi"))

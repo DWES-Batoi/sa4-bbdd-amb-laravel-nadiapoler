@@ -16,6 +16,13 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(BaseRepository::class, EquipRepository::class);
+
+
+        // Para que funcione el test EstadiCrudFeatureTest dejar esto 
+        // sin comentar y el de EquipRepository comentado
+        // $this->app->bind(BaseRepository::class, EstadiRepository::class);
+
+
         // Para que se inyecte correctamente en los servicios
         $this->app->bind('JugadoraRepo', JugadoraRepository::class);
         $this->app->bind('PartitRepo', PartitRepository::class);
