@@ -7,6 +7,7 @@ use App\Repositories\EquipRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\JugadoraRepository;
 use App\Repositories\PartitRepository;
+use Illuminate\Support\Facades\Route;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,24 +16,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(BaseRepository::class, EquipRepository::class);
-
-
-        // Para que funcione el test EstadiCrudFeatureTest dejar esto 
-        // sin comentar y el de EquipRepository comentado
+        /* Para que funcione el test "EstadiCrudFeatureTest" hay que dejar esto 
+           sin comentar y el de "EquipRepository" comentado 
+        */
         // $this->app->bind(BaseRepository::class, EstadiRepository::class);
-
+        $this->app->bind(BaseRepository::class, EquipRepository::class);
 
         // Para que se inyecte correctamente en los servicios
         $this->app->bind('JugadoraRepo', JugadoraRepository::class);
         $this->app->bind('PartitRepo', PartitRepository::class);
     }
 
-    /**
-     * Bootstrap any application services.
-     */
     public function boot(): void
     {
-        //
+        Route::prefix('api')
+            ->middleware('api')
+            ->group(base_path('routes/api.php'));
     }
 }

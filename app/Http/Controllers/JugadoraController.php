@@ -45,4 +45,5 @@ class JugadoraController extends Controller
         $this->servei->eliminar($jugadora->id);
         return redirect()->route('jugadores.index');
     }
+    
 }

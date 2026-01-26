@@ -35,4 +35,3 @@ WORKDIR /var/www/html
 
 # Instalar dependencias del proyecto si ya hay composer.json (no falla si no existe)
 RUN if [ -f composer.json ]; then composer install --no-interaction; fi
-

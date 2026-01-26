@@ -18,13 +18,12 @@ class Jugadora extends Model
         'foto',
     ];
 
-    // <<< Esto convierte el campo en Carbon automáticamente
     protected $casts = [
         'data_naixement' => 'date',
     ];
 
     public function equip()
     {
-        return $this->belongsTo(Equip::class);
+        return $this->belongsTo(\App\Models\Equip::class);
     }
 }
