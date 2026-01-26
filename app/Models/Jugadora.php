@@ -11,11 +11,19 @@ class Jugadora extends Model
 
     protected $table = 'jugadores';
 
-    protected $fillable = [
+    /* protected $fillable = [
         'equip_id',
         'data_naixement',
         'dorsal',
         'foto',
+    ];*/
+
+    protected $fillable = [
+        'nom',
+        'equip_id',
+        'posicio',
+        'dorsal',
+        'edat',
     ];
 
     protected $casts = [
