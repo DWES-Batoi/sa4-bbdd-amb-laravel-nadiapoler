@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\JugadoraController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\EquipController;
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
@@ -23,6 +24,10 @@ Route::apiResource('jugadores', JugadoraController::class)
     ->parameters(['jugadores' => 'jugadora'])
     ->only(['index', 'show']);
 
+Route::prefix('equips')->name('api.equips.')->group(function () {
+    Route::apiResource('/', EquipController::class)
+        ->parameters(['' => 'equip']);
+});
 
 Route::prefix('jugadores')->name('api.jugadoras.')->group(function () {
     Route::get('/', [JugadoraController::class, 'index'])->name('index');

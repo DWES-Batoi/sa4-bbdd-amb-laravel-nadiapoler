@@ -1,3 +1,6 @@
+
+
+
 {{-- resources/views/layouts/equip.blade.php --}}
 <x-app-layout>
     <x-slot name="header">

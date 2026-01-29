@@ -194,7 +194,7 @@
                     {{ __('Log in') }}
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link :href="route('register') ">
+                <x-responsive-nav-link :href="route('register')">
                     {{ __('Register') }}
                 </x-responsive-nav-link>
             </div>
