@@ -19,10 +19,7 @@ Route::middleware('auth:sanctum')->group(function () {
         ->except(['index', 'show']);
 });
 
-// Endpoints públics (lectura)
-Route::apiResource('jugadores', JugadoraController::class)
-    ->parameters(['jugadores' => 'jugadora'])
-    ->only(['index', 'show']);
+
 
 Route::prefix('equips')->name('api.equips.')->group(function () {
     Route::apiResource('/', EquipController::class)
