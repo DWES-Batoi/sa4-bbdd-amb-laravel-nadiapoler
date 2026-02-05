@@ -11,14 +11,20 @@ class EstadiService
 {
     public function __construct(private BaseRepository $repo) {}
 
-    public function guardar(array $data, ?UploadedFile $escut = null): Estadi
+    public function guardar(array $data)
     {
-        if ($escut) {
-            $data['escut'] = $escut->store('escuts', 'public');
-        }
+        // Crear estadi
+        $estadi = Estadi::create($data);
 
-        return $this->repo->create($data);
+        // ❌ QUITA ESTO
+        // $this->equipRepository->create([
+        //     'nom' => $data['nom'],
+        // ]);
+
+        return $estadi;
     }
+
+
 
     public function actualitzar(int $id, array $data, ?UploadedFile $escut = null): Estadi
     {
@@ -50,7 +56,8 @@ class EstadiService
     }
 
     public function llistar()
-    {
-        return $this->repo->getAll();
-    }
+{
+    return Estadi::all();   // 👈 SIN filtros
+}
+
 }

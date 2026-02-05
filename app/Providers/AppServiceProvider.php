@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Repositories\BaseRepository;
 use App\Repositories\EquipRepository;
+use App\Repositories\EstadiRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\JugadoraRepository;
 use App\Repositories\PartitRepository;
@@ -19,10 +20,8 @@ class AppServiceProvider extends ServiceProvider
         /* Para que funcione el test "EstadiCrudFeatureTest" hay que dejar esto 
            sin comentar y el de "EquipRepository" comentado 
         */
-        // $this->app->bind(BaseRepository::class, EstadiRepository::class);
+        $this->app->bind(BaseRepository::class, EstadiRepository::class);
         $this->app->bind(BaseRepository::class, EquipRepository::class);
-
-        // Para que se inyecte correctamente en los servicios
         $this->app->bind('JugadoraRepo', JugadoraRepository::class);
         $this->app->bind('PartitRepo', PartitRepository::class);
     }

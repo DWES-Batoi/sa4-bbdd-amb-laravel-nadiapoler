@@ -15,7 +15,7 @@
   </div>
 @endif
 
-<form action="{{ route('estadis.store') }}" method="POST" class="space-y-4">
+<form action="{{ route('estadis.store') }}" method="POST" class="space-y-4 estadis-create">
   @csrf
 
   <div>
@@ -25,7 +25,7 @@
       name="nom"
       id="nom"
       value="{{ old('nom') }}"
-      class="border p-2 w-full"
+      class="border p-2 w-full input-create-estadis"
     >
   </div>
 
@@ -36,7 +36,7 @@
       name="capacitat"
       id="capacitat"
       value="{{ old('capacitat') }}"
-      class="border p-2 w-full"
+      class="border p-2 w-full input-create-estadis"
     >
   </div>
 

@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.jugadores-edit,
+.input-create-estadis
+{
+    color: #111827;
+}
+
 .footer {
     background-color: #202938;
     color: white;

@@ -134,11 +134,11 @@
                 {{ __('Estadis') }}
             </x-responsive-nav-link>
 
-            @auth
+          
+
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            @endauth
         </div>
         {{-- 🌍 Idioma (sempre visible en mòbil) --}}
         <div class="pt-2 pb-2 border-t border-gray-200 dark:border-gray-600">
@@ -157,7 +157,7 @@
                 </a>
             </div>
         </div>
-        
+
         <!-- Responsive Settings Options -->
         @auth
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">

@@ -34,11 +34,11 @@ Route::get('/locale/{locale}', function (string $locale) {
 
 
 
-
 // 📌 TODAS LAS RUTAS PÚBLICAS (sin login)
 Route::resource('equips', EquipController::class);
 Route::resource('estadis', EstadiController::class);
-Route::resource('jugadores', JugadoraController::class);
+Route::resource('jugadores', JugadoraController::class)
+    ->parameters(['jugadores' => 'jugadora']);
 Route::resource('partits', PartitController::class);
 
 // Breeze (no afecta)

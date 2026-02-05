@@ -15,6 +15,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Exemple: protegim els endpoints d'escriptura
     Route::apiResource('jugadores', JugadoraController::class)
+        ->names('api.jugadores')
         ->parameters(['jugadores' => 'jugadora'])
         ->except(['index', 'show']);
 });
