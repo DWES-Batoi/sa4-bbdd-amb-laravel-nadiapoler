@@ -8,6 +8,7 @@ use App\Http\Controllers\PartitController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClassificacioController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,6 +19,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+
+Route::get('/classificacio', [ClassificacioController::class, 'index'])
+    ->name('classificacio.index');
 Route::get('/auth/google/redirect', [AuthController::class, 'redirectToGoogle'])->name('google.redirect');
 Route::get('/auth/google/callback', [AuthController::class, 'handleGoogleCallback'])->name('google.callback');
 

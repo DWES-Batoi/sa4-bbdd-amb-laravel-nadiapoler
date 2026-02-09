@@ -28,6 +28,10 @@
                         {{ __('Partits') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('classificacio.index')" :active="request()->routeIs('classificacio.*')">
+                        {{ __('Classificació') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
@@ -133,8 +137,6 @@
             <x-responsive-nav-link :href="route('estadis.index')" :active="request()->routeIs('estadis.*')">
                 {{ __('Estadis') }}
             </x-responsive-nav-link>
-
-          
 
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}

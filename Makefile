@@ -14,8 +14,10 @@ up:
 down:
 	docker compose down
 
+build:
+	docker compose build app
+
 reset:
-	docker compose down -v
 	rm -rf vendor node_modules bootstrap/cache/*.php public/storage
 	rm -f .env
 
@@ -51,3 +53,8 @@ composer:
 	@docker compose run --rm app composer $(CMD)
 	@true
 
+reverb:
+	docker compose exec app php artisan reverb:start --port=8081
+
+queue:
+	docker compose exec app php artisan queue:work

@@ -11,6 +11,8 @@ services:
     depends_on:
       - db
       - redis
+    ports:
+      - "8081:8081"  
 
   web:
     image: nginx:alpine
@@ -53,8 +55,6 @@ services:
       PMA_HOST: db
       PMA_USER: root
       PMA_PASSWORD: root
-      # Si quieres permitir definir otros servidores manualmente en la UI:
-      # PMA_ARBITRARY: 1
     ports:
       - "8080:80"
 

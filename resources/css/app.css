@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.index-classificacio table th,
+.index-classificacio table td {
+    color: white !important;
+}
+
 .jugadores-edit,
-.input-create-estadis
-{
+.input-create-estadis {
     color: #111827;
 }
 
@@ -16,9 +20,8 @@
 .partits-index,
 .equips-index,
 .estadis-index,
-.jugadores-index
-{
-    font-size: 1.7rem; 
+.jugadores-index {
+    font-size: 1.7rem;
     font-weight: bold;
     color: #ffffff;
 }
