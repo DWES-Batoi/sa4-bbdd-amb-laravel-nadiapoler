@@ -1,5 +1,6 @@
 services:
   app:
+    image: php:8.2-fpm
     build:
       context: .
       dockerfile: Dockerfile

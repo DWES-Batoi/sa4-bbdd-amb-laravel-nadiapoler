@@ -22,7 +22,7 @@ class EquipRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nom' => ['required', 'string', 'max:255'],
+            'nom' => ['nullable', 'string', 'max:255'],
             'ciutat' => ['nullable', 'string', 'max:255'],
             'estadi_id' => ['nullable', 'exists:estadis,id'],
         ];

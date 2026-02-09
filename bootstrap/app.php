@@ -13,6 +13,8 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__ . '/../routes/console.php',
         health: '/up',
     )
+
+
     ->withMiddleware(function (Middleware $middleware): void {
 
         $middleware->group('web', [
@@ -29,6 +31,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->group('api', [
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ]);
+
+        $middleware->alias([
+            'not.convidat' => \App\Http\Middleware\EnsureNotConvidat::class,
+        ]);
+
     })
 
     ->withExceptions(function (Exceptions $exceptions): void {
