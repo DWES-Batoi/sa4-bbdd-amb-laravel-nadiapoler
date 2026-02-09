@@ -58,3 +58,16 @@ reverb:
 
 queue:
 	docker compose exec app php artisan queue:work
+
+	.PHONY: ollama-pull ollama-tags ollama-generate
+
+ollama-pull:
+	docker compose exec ollama ollama pull llama3
+
+ollama-tags:
+	docker compose exec app curl -sS http://ollama:11434/api/tags | head -n 60
+
+ollama-generate:
+	docker compose exec app curl -sS http://ollama:11434/api/generate \
+		-H "Content-Type: application/json" \
+		-d '{"model":"llama3","prompt":"Escriu una frase curta sobre un estadi.","stream":false}'

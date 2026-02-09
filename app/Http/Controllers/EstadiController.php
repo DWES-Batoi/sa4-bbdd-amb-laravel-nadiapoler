@@ -6,6 +6,7 @@ use App\Models\Estadi;
 use App\Services\EstadiService;
 use App\Http\Requests\StoreEstadiRequest;
 use App\Http\Requests\UpdateEstadiRequest;
+use App\Services\LLMService;
 
 class EstadiController extends Controller
 {
@@ -21,8 +22,12 @@ class EstadiController extends Controller
     // GET /estadis/{estadi}
     public function show(Estadi $estadi)
     {
-        $estadi->load('equips');
-        return view('estadis.show', compact('estadi'));
+        $prompt = "Escriu una descripció breu i amable de l'estadi {$estadi->nom}. "
+            . "Inclou 3 dades curioses i to divulgatiu. Màxim 80 paraules.";
+
+        $descripcio = LLMService::getResponse($prompt);
+
+        return view('estadis.show', compact('estadi', 'descripcio'));
     }
 
     // GET /estadis/create

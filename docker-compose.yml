@@ -11,8 +11,11 @@ services:
     depends_on:
       - db
       - redis
+      - ollama
     ports:
       - "8081:8081"  
+    environment:
+      LLM_BASE_URL: http://ollama:11434
 
   web:
     image: nginx:alpine
@@ -58,5 +61,15 @@ services:
     ports:
       - "8080:80"
 
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
 volumes:
   db-data:
+  ollama_data:
