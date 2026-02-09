@@ -26,11 +26,10 @@ class JugadoraController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'nom' => ['nullable', 'string', 'max:255'],
             'equip_id' => ['required', 'exists:equips,id'],
-            'posicio' => ['nullable', 'string', 'max:100'],
+            'data_naixement' => ['required', 'date'],
             'dorsal' => ['nullable', 'integer', 'min:0', 'max:99'],
-            'edat' => ['nullable', 'integer', 'min:0', 'max:120'],
+            'foto' => ['nullable', 'string'],
         ]);
         $jugadora = \App\Models\Jugadora::create($data);
 

@@ -7,7 +7,9 @@ use App\Models\Partit;
 
 class ClassificacioService
 {
-
+    /**
+     * Retorna un array [equip_id => punts]
+     */
     public function puntsPerEquip(): array
     {
         $punts = [];
@@ -24,8 +26,8 @@ class ClassificacioService
             $l = $p->local_id;
             $v = $p->visitant_id;
 
-            $gl = (int) $p->gols_local;
-            $gv = (int) $p->gols_visitant;
+            $gl = (int) $p->gols; // solo un campo goles
+            $gv = 0;               // visitante no tiene goles
 
             // Calcula puntos 3-1-0
             if ($gl > $gv) {
@@ -67,16 +69,16 @@ class ClassificacioService
             $l = $p->local_id;
             $v = $p->visitant_id;
 
-            $gl = (int) $p->gols_local;
-            $gv = (int) $p->gols_visitant;
+            $gl = (int) $p->gols; // solo un campo goles
+            $gv = 0;               // visitante no tiene goles
 
-            // gols
+            // goles
             $stats[$l]['gf'] += $gl;
             $stats[$l]['gc'] += $gv;
             $stats[$v]['gf'] += $gv;
             $stats[$v]['gc'] += $gl;
 
-            // punts (3-1-0)
+            // puntos (3-1-0)
             if ($gl > $gv) {
                 $stats[$l]['punts'] += 3;
             } elseif ($gl < $gv) {
@@ -93,7 +95,7 @@ class ClassificacioService
         }
         unset($row);
 
-        // Ordena millor -> pitjor
+        // Ordena mejor -> peor
         $rows = array_values($stats);
         usort($rows, function ($a, $b) {
             return

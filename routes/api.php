@@ -35,3 +35,5 @@ Route::prefix('jugadores')->name('api.jugadoras.')->group(function () {
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+
+
